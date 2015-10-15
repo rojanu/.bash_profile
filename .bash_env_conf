@@ -15,3 +15,12 @@
 #   ------------------------------------------------------------
     export EDITOR=/usr/bin/nano
 
+#   Set bash command history
+#   ------------------------------------------------------------
+    export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+    export HISTSIZE=1000
+    export HISTFILESIZE=1000
+    shopt -s histappend                      # append to history, don't overwrite it
+
+    # Save and reload the history after each command finishes
+    export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
