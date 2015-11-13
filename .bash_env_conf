@@ -23,4 +23,6 @@
     shopt -s histappend                      # append to history, don't overwrite it
 
     # Save and reload the history after each command finishes
-    export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+    export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+    alias unduped_history='nl ~/.bash_history | sort -k 2  -k 1,1nr| uniq -f 1 | sort -n | cut -f 2 > ~/.unduped_history'
