@@ -12,6 +12,12 @@ function get_prompt_dir() {
   fi
 }
 
+get_prompt_dir
+
+# Bash customisation file
+
+##########################################################################
+#General configuration starts: stuff that you always want executed
 [[ -r ${__WORKSPACE}/.bash_alias_process-management ]] && . ${__WORKSPACE}/.bash_alias_process-management
 [[ -r ${__WORKSPACE}/.bash_alias_searching ]] && . ${__WORKSPACE}/.bash_alias_searching
 [[ -r ${__WORKSPACE}/.bash_better-terminal ]] && . ${__WORKSPACE}/.bash_better-terminal
@@ -21,3 +27,21 @@ function get_prompt_dir() {
 [[ -r ${__WORKSPACE}/.bash_web-development ]] && . ${__WORKSPACE}/.bash_web-development
 
 [[ "$OSTYPE" == "darwin"* ]] && [[ -r ${__WORKSPACE}/.bash_mac ]] && . ${__WORKSPACE}/.bash_mac
+
+#General configuration ends
+##########################################################################
+
+if [[ -n $PS1 ]]; then
+    : # These are executed only for interactive shells
+    echo "interactive"
+else
+    : # Only for NON-interactive shells
+fi
+
+if shopt -q login_shell ; then
+    : # These are executed only when it is a login shell
+    echo "login"
+else
+    : # Only when it is NOT a login shell
+    echo "nonlogin"
+fi
