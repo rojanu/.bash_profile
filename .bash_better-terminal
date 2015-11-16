@@ -43,3 +43,38 @@ mans () {
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
 showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
+
+
+#   Append given path to PATH if not exists already
+#   ------------------------------------------------------------
+appendPath () {
+  newPath=$1
+  if [ ! -z "$newPath" ] && [ -d $new ]; then
+    case ":${PATH:=$new}:" in
+        *:$new:*)  ;;
+        *) PATH="$PATH:$new"  ;;
+    esac
+    export PATH
+  fi
+}
+
+#   Prepend given path to PATH if not exists already
+#   ------------------------------------------------------------
+prependPath () {
+  newPath=$1
+  if [ ! -z "$newPath" ] && [ -d $new ]; then
+    case ":${PATH:=$new}:" in
+        *:$new:*)  ;;
+        *) PATH="$new:$PATH"  ;;
+    esac
+    export PATH
+  fi
+}
+
+#   src given file, if exists
+#   ------------------------------------------------------------
+src () {
+  if [ ! -z "$1" ] && [ -e $1 ]; then
+    source $1
+  fi
+}
