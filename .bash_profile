@@ -26,6 +26,8 @@ get_prompt_dir
 [[ -r ${__WORKSPACE}/.bash_networking ]] && . ${__WORKSPACE}/.bash_networking
 [[ -r ${__WORKSPACE}/.bash_web-development ]] && . ${__WORKSPACE}/.bash_web-development
 
+[[ -d ${__WORKSPACE}/.bin ]] && export PATH="${__WORKSPACE}/.bin:$PATH"
+
 [[ "$OSTYPE" == "darwin"* ]] && [[ -r ${__WORKSPACE}/.bash_mac ]] && . ${__WORKSPACE}/.bash_mac
 
 #General configuration ends
