@@ -55,7 +55,7 @@ brew tap caskroom/cask
 echo "Installing packages..."
 brew install git
 brew install git-crypt
-brew install mysql
+brew install mysql@5.7
 brew install nvm
 brew cask install caskroom/versions/java8
 brew install sbt

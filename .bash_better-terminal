@@ -48,8 +48,8 @@ showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.ba
 #   Append given path to PATH if not exists already
 #   ------------------------------------------------------------
 appendPath () {
-  newPath=$1
-  if [ ! -z "$newPath" ] && [ -d $new ]; then
+  new=$1
+  if [ ! -z "$new" ] && [ -d $new ]; then
     case ":${PATH:=$new}:" in
         *:$new:*)  ;;
         *) PATH="$PATH:$new"  ;;
@@ -61,8 +61,8 @@ appendPath () {
 #   Prepend given path to PATH if not exists already
 #   ------------------------------------------------------------
 prependPath () {
-  newPath=$1
-  if [ ! -z "$newPath" ] && [ -d $new ]; then
+  new=$1
+  if [ ! -z "$new" ] && [ -d $new ]; then
     case ":${PATH:=$new}:" in
         *:$new:*)  ;;
         *) PATH="$new:$PATH"  ;;

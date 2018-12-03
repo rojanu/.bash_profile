@@ -47,3 +47,24 @@ else
     : # Only when it is NOT a login shell
     echo "nonlogin"
 fi
+
+# history
+##########################################################################
+## Set the  maximum  number of lines contained in the history file ##
+HISTFILESIZE=5000000
+ 
+## Set the number of commands to remember in the command history ##
+HISTSIZE=10000
+ 
+## Append it ##
+shopt -s histappend
+ 
+######
+# Controlling how commands are saved on the history file ##
+# ignoreboth means:                       ##
+# a) Command which begin with a space character are not saved in the history list               ##
+# b) Command matching the previous history entry  to  not  be  saved (avoid duplicate commands) ##
+######
+HISTCONTROL=ignoreboth
+
+HISTIGNORE='rm:ln:ll:ls'
