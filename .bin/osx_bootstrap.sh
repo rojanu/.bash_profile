@@ -57,21 +57,26 @@ brew install git
 brew install git-crypt
 brew install mysql@5.7
 brew install nvm
-brew cask install caskroom/versions/java8
-brew install sbt
-brew install scala
 brew install wget
 
-echo "Cleaning up..."
-brew cleanup
+echo "Tapping cask repos"
+brew tap AdoptOpenJDK/openjdk
 
 echo "Installing cask apps..."
-brew cask install atom
+brew cask install adoptopenjdk8
+brew cask install visual-studio-code
 brew cask install docker-toolbox
 brew cask install iterm2
 brew cask install slack
 brew cask install intellij-idea
 brew cask install mysqlworkbench
+
+echo "Installing apps with dependencies on cask apps"
+brew install sbt
+brew install scala
+
+echo "Cleaning up..."
+brew cleanup
 
 NODE_VERSION="6.10.0"
 
